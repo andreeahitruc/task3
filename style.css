@@ -179,3 +179,54 @@ a{
 	cursor: pointer;
 	margin-left: 5px;
 }
+
+.portofolio {
+	
+	/*background-color: #2d303a;*/
+	background-color: pink;
+	border-bottom: 6px solid #db7093;
+}
+.portofolio-title-area {
+	padding-top: 65px;
+	color: #666d89;
+}
+.portofolio-title-area h2 {
+	font-family: 'Lato';
+	font-size: 30px;
+	font-weight: bold;
+}
+.portofolio-title-area p {
+	margin: 0;
+	font-family: 'Lato';
+	font-size: 18px;
+}
+.portofolio-btns {
+	padding-top: 18px;
+	padding-bottom: 10px;
+	font-family: 'Lato';
+	font-size: 12px;
+}
+.portofolio-btns button {
+	display: inline-block;
+	cursor: pointer;
+	border: 2px solid #666d89;
+	border-radius: 6px;
+	background-color: #2d303a;
+	color: #666d89;
+
+}
+.portofolio-btns button:hover {
+	border-color: #fff;
+	color: #fff;
+}
+.portofolio-projects {
+
+	padding-bottom: 55px;
+}
+.portofolio-projects img {
+	vertical-align: top;
+	/*width: 23%;
+	height: 23%;*/
+	margin: 10px;
+
+}
