@@ -1,3 +1,9 @@
+
+
+
+
+
+
 body{
 	margin: 0;
 }
@@ -50,40 +56,18 @@ a{
 .header-list a b:hover{
 	color: #f06c64;
 }
-@media screen and (max-width: 760px){
-	.header-logo, .header-list, .footer-copyright, .footer-contact{
-		display: block;
-		width: 100%;
-		text-align:left;
-	}
-}
-@media screen and (max-width: 460px){
-	.header-list a, .footer-contact img{
-		display: block;
-	}
-}
-@media screen and (max-width: 460px){
-	 .footer-contact img{
-		padding-top: 10px;
-	}
-}
-@media screen and (max-width: 460px){
-	 .footer-contact {
-		padding-left: 10px;
-	}
-}
-@media screen and (max-width: 760px){
-	.footer-copyright{
-		padding-top: 10px;
-	}
-}
+
 .slider{
+	transition: background-color 1s;
 	background-color: #f06c64;
 	border-bottom: 6px solid #ea676b;
 }
+.slider-site-width {
+	height: 600px;
+}
 .arrow{
 	position: absolute;
-	top: 280px;
+	top: 45%;
 	opacity: 0.2;
 }
 .left-arrow{
@@ -92,18 +76,18 @@ a{
 .right-arrow{
 	right: 0;
 }
-.iphons{
-	text-align: center;
-}
+
 .vertical-iphone{
-	margin-top: 52px;
-	margin-bottom:65px;
-	margin-right: 73px;
-	display: inline-block;
+	margin: 0;
+	text-align: center;
+	padding-top: 5%;
+	
 }
 .horizontal-iphone{
-	margin-top: 175px;
-	margin-bottom: 180px;
+	width: 65%;
+	padding-top: 175px;
+	padding-bottom: 180px;
+	text-align: center;
 	display: inline-block;
 }
 .services{
@@ -229,4 +213,94 @@ a{
 	height: 23%;*/
 	margin: 10px;
 
+}
+@media screen and (max-width: 1000px){
+	 .site-width{
+		display: block;
+		width: 900px;
+		
+	}
+}
+@media screen and (max-width: 760px){
+	 .site-width{
+		display: block;
+		width: 650px;
+		
+	}
+}
+@media screen and (max-width: 600px){
+	.site-width {
+		display: block;
+		width: 500px;
+	}
+}
+
+
+@media screen and (max-width: 760px){
+	.header-logo, .header-list, .footer-copyright, .footer-contact{
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 760px){
+	.header-list {
+		padding-top: 0px;
+		
+	}
+}
+@media screen and (max-width: 460px){
+	.header-list a, .footer-contact img{
+		display: block;
+	}
+}
+@media screen and (max-width: 460px){
+	.header-list span{
+		display: none;
+	}
+}
+@media screen and (max-width: 460px){
+	 .footer-contact img{
+		padding-top: 10px;
+	}
+}
+@media screen and (max-width: 460px){
+	 .footer-contact {
+		padding-left: 10px;
+	}
+}
+@media screen and (max-width: 760px){
+	.footer-copyright{
+		padding-top: 10px;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	 .multi-services{
+		display: block;
+		padding-left: 100px;
+		
+	}
+}
+@media screen and (max-width: 760px){
+	 .multi-services{
+		display: block;
+		padding-left: 175px;
+		
+	}
+
+@media screen and (max-width: 600px){
+	 .multi-services{
+		display: block;
+		padding-left: 100px;
+		
+	}
+}
+@media screen and (max-width: 1000px){
+	 .services h2, .service-description {
+		display: block;
+		padding-left: 40px;
+		
+	}
 }
