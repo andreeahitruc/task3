@@ -1,16 +1,15 @@
-var getRandColor = function() {
+(function() { 
+
+var randColor = function(slider) {
   var r = parseInt(Math.random() * 255),
   g = parseInt(Math.random() * 255),
-  b = parseInt(Math.random() * 255);
-  return 'rgb('+ r +','+ g +','+ b +')';
-}
+  b = parseInt(Math.random() * 255),
+  color = 'rgb('+ r +','+ g +','+ b +')';
+  this.slider.css('background-color', color);
+};
+ 
+//randColor($('div.slider'));
 
-setInterval(function() {
-  var color = getRandColor();
-  $('div.slider').css('background-color', color);
-}, 2000);
-
-(function() { 
 
 resize = function() {
   var width = $(window).width();
@@ -73,10 +72,11 @@ autofit = function(img, container) {
 }());
 
 function Slider(cont,imageWidth,speedFadeIn,speedFadeOut,speedSlider){
-  this.rail = cont.find('.slider-container');
-  cont.find('.slider-page').first()
-    .clone().appendTo(this.rail);
   this.cont = cont;
+  this.rail = this.cont.find('.slider-container');
+  this.clone = this.cont.find('.slider-page').first()
+    .clone().appendTo(this.rail);
+  
   this.imageWidth = imageWidth;
   this.page=$('.slider-page');
   this.imageLen = this.page.length;
@@ -87,23 +87,36 @@ function Slider(cont,imageWidth,speedFadeIn,speedFadeOut,speedSlider){
  
  
   this.page.css('width', this.imageWidth);
-  this.rail.css('width', this.totalImgsWidth);
+  this.rail.css({
+    'width': this.totalImgsWidth,
+    
+  });
   this.current = 0;
+/*
+  this.page.find('.iphone img').css({opacity: 0});
+  this.clone.find('.iphone img').css({opacity:0});
+  this.page.find('.iphone img').first().css({opacity: 1});
+*/
+ 
    console.log(this.imageWidth);
    console.log(this.imageLen);
    console.log(this.totalImgsWidth);
 
 };
+
 Slider.prototype.slide = function(direction) { 
   this.fadeOut();
   this.direction = direction;
+  
 };
 Slider.prototype.fadeOut = function() {
-  var fadeVar = this.page.children().eq(this.current).children();
+  var fadeVar = this.page.eq(this.current);
   fadeVar
     .animate({
       opacity: 0
-      }, this.speedFadeOut, this.slideTo.bind(this))
+      }, this.speedFadeOut, function() {
+        this.slideTo();
+      }.bind(this))
 };
 Slider.prototype.increment = function() {
   this.current = (1 + this.current) % this.imageLen;
@@ -116,7 +129,12 @@ Slider.prototype.decrement = function() {
   }
 };    
 Slider.prototype.slideTo = function() {
+   var r = parseInt(Math.random() * 255),
+  g = parseInt(Math.random() * 255),
+  b = parseInt(Math.random() * 255)
+  this.color = 'rgb('+ r +','+ g +','+ b +')';
   var sl = this.rail;
+
   if(this.direction === 'next'){
     if(this.current === this.imageLen - 1){
       sl.css({
@@ -138,7 +156,14 @@ Slider.prototype.slideTo = function() {
   }
   sl.animate({
       marginLeft: -this.imageWidth * this.current
-    }, this.speedSlider, this.fadeIn.bind(this))
+      //'background-color': this.color
+     // background-color: this.color
+      
+    }, this.speedSlider, function() {
+      this.fadeIn();
+    }.bind(this))
+  this.cont.css({'background-color': this.color});
+  console.log(this.color);
 };
 Slider.prototype.fadeIn = function() {
   var fadeVar = this.page.eq(this.current);
