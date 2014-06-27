@@ -72,11 +72,8 @@ autofit = function(img, container) {
 }
 
 
-$('.slider-page').each(function() {
-  var $this = $(this);
-  autofit($this.find('img'), $this.find('.iphone'))
-})
 
+/*
 function Slider(slider){
   this.slider=slider;
   this.index = 0;
@@ -147,5 +144,81 @@ var transition= function(slid) {
 }
 
 var s = new Slider($('.slider'));
-
+*/
 }());
+
+function Slider(cont,imageWidth,speedFadeIn,speedFadeOut,speedSlider){
+  this.rail = cont.find('.slider-container');
+  cont.find('.slider-page').first()
+    .clone().appendTo(this.rail);
+  this.cont = cont;
+  this.imageWidth = imageWidth;
+  this.page=$('.slider-page');
+  this.imageLen = this.page.length;
+  this.totalImgsWidth = this.imageWidth * this.imageLen+5;
+  this.speedFadeIn = speedFadeIn;
+  this.speedFadeOut = speedFadeOut;
+  this.speedSlider = speedSlider;
+ 
+ 
+  this.page.css('width', this.imageWidth);
+  this.rail.css('width', this.totalImgsWidth);
+  this.current = 0;
+   console.log(this.imageWidth);
+   console.log(this.imageLen);
+   console.log(this.totalImgsWidth);
+
+};
+Slider.prototype.slide = function(direction) { 
+  this.fadeOut();
+  this.direction = direction;
+};
+Slider.prototype.fadeOut = function() {
+  var fadeVar = this.page.children().eq(this.current).children();
+  fadeVar
+    .animate({
+      opacity: 0
+      }, this.speedFadeOut, this.slideTo.bind(this))
+};
+Slider.prototype.increment = function() {
+  this.current = (1 + this.current) % this.imageLen;
+};
+Slider.prototype.decrement = function() {
+  this.current = (this.current - 1);
+  
+  if(this.current < 0) {
+    this.current = this.imageLen - 1;
+  }
+};    
+Slider.prototype.slideTo = function() {
+  var sl = this.rail;
+  if(this.direction === 'next'){
+    if(this.current === this.imageLen - 1){
+      sl.css({
+        marginLeft: 0,
+      })
+      this.current = 0;
+    }
+    this.increment();
+    console.log(this.current);
+  }
+  else {
+    if(this.current === 0){
+      sl.css({
+        marginLeft: -(this.imageLen - 1) * this.imageWidth
+      })
+      this.current = this.imageLen - 1;
+    }
+    this.decrement();
+  }
+  sl.animate({
+      marginLeft: -this.imageWidth * this.current
+    }, this.speedSlider, this.fadeIn.bind(this))
+};
+Slider.prototype.fadeIn = function() {
+  var fadeVar = this.page.eq(this.current);
+  fadeVar
+    .animate({
+      opacity: 1
+    }, this.speedFadeIn)
+};

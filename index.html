@@ -21,19 +21,19 @@
 	</div>
 	<div class="slider">
 		<div class="slider-container">
-			<div class="slider-page s1">
+			<div class="slider-page s1">1
 				<div class="iphone i1" >
 					<img src="Images/singol_vertical.png"/>
 				</div>
 			</div><!--
-			--><div class="slider-page s2">
+		--><div class="slider-page s2">2
 			    <div class="iphone i2">
 						<img src="Images/singolo_orizontal.png"/>
 				</div>	
 			</div>
 	    </div>
-	    <img class="arrow right-arrow" src="Images/arrow-right.png"/>
-		<img class="arrow left-arrow" src="Images/arrow-left.png"/>
+	    <img class="arrow right-arrow" data-dir = 'next' src="Images/arrow-right.png"/>
+		<img class="arrow left-arrow" data-dir = 'prev' src="Images/arrow-left.png"/>
 	</div>
 
 	<div class="services">
@@ -101,7 +101,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<script src="script.js"></script>
-	
+	<script type = "text/javascript">
+		
+		var slideOb = new Slider($('div.slider'), $(window).width(), 1000, 1000, 500);
+		$('.arrow').on('click', function(){ 
+			slideOb.slide($(this).data('dir'));
+		})
+
+		$('.slider-page').each(function() {
+	  	var $this = $(this);
+	  	autofit($this.find('img'), $this.find('.iphone'))
+})
+	</script>
 
 </body>
 </html>
