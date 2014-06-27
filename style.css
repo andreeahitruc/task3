@@ -50,8 +50,10 @@ a{
 	color: #f06c64;
 }
 .slider{
+
 	position: relative;
 	background-color: #f06c64;
+	transition: background-color 500ms;
 	border-bottom: 6px solid #ea676b;
 	overflow: hidden;
 }
@@ -60,7 +62,7 @@ a{
 	
 }
 .slider-page{
-	transition: background-color 1s;
+	
 	position: relative;
 	display: inline-block;
 	width: 1350px;

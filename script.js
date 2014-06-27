@@ -16,6 +16,8 @@ resize = function() {
   width = Math.min(width, 2700);
   var height = width * 60 / 135;
   $('.slider-page').css({width:width, height: height});
+ // $('.slider-page .s1').css({width:width, height: height});
+  //$('.slider-page .s2').css({width:width, height: height});
 
 }
 resize();
@@ -65,7 +67,7 @@ autofit = function(img, container) {
   fit(img, container) 
   
   $(window).on('resize', function() { 
-    fit(img, container)
+    fit(img, container);
   })
 }
 
