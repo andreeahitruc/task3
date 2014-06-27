@@ -70,6 +70,7 @@ autofit = function(img, container) {
   })
 }
 
+
 }());
 
 function Slider(cont,imageWidth,speedFadeIn,speedFadeOut,speedSlider){

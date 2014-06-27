@@ -26,30 +26,26 @@
 				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
 			</div>
 			<div class="portofolio-btns">
-				<button>All</button>
-				<button>Web Design</button>
-				<button>Graphic Design</button>
-				<button>Artwork</button>
+				<button class="all">All</button>
+				<button class="web">Web Design</button>
+				<button class="graphic">Graphic Design</button>
+				<button class="artwork">Artwork</button>
 			</div>
 			<div class="portofolio-projects">
-			   <img alt="project" src="Images/img1.png"/><!--
-			--><img alt="project" src="Images/img2.png" /><!--
-			--><img alt="project" src="Images/img3.png" /><!--
-			--><img alt="project" src="Images/img4.png" /><!--
-			--><img alt="project" src="Images/img5.png" /><!--
-			--><img alt="project" src="Images/img6.png" /><!--
-			--><img alt="project" src="Images/img7.png" /><!--
-			--><img alt="project" src="Images/img8.png" /><!--
-			--><img alt="project" src="Images/img9.png" /><!--
-			--><img alt="project" src="Images/img10.png" /><!--
-			--><img alt="project" src="Images/img11.png" /><!--
-			--><img alt="project" src="Images/img12.png" />
+			   <img alt="project" data-categories="cat1 cat2 cat3" src="Images/img1.png"/><!--
+			--><img alt="project" data-categories="cat1 cat2" src="Images/img2.png" /><!--
+			--><img alt="project" data-categories="cat1 cat2 " src="Images/img3.png" /><!--
+			--><img alt="project" data-categories="cat3" src="Images/img4.png" /><!--
+			--><img alt="project" data-categories="cat3" src="Images/img5.png" /><!--
+			--><img alt="project" data-categories="cat2" src="Images/img6.png" /><!--
+			--><img alt="project" data-categories="cat1" src="Images/img7.png" /><!--
+			--><img alt="project" data-categories="cat1 cat2" src="Images/img8.png" /><!--
+			--><img alt="project" data-categories="cat1 cat3" src="Images/img9.png" /><!--
+			--><img alt="project" data-categories="cat2" src="Images/img10.png" /><!--
+			--><img alt="project" data-categories="cat1 cat3" src="Images/img11.png" /><!--
+			--><img alt="project" data-categories="cat2" src="Images/img12.png" />
 			</div>
 		</div>
-		
-
-
-	
 	</div>
 	<div class="footer">
 		<div class="site-width">
@@ -62,5 +58,26 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+		$('.all').on('click', function(){ 
+  			$('img').fadeIn(300)
+		})
+		$('.web').on('click', function(){ 
+			$('img[data-categories~="cat2"]').fadeOut(300)
+			$('img[data-categories~="cat3"]').fadeOut(300)
+			$('img[data-categories~="cat1"]').fadeIn(300)
+		})
+		$('.graphic').on('click', function(){ 
+			$('img[data-categories~="cat1"]').fadeOut(300)
+			$('img[data-categories~="cat3"]').fadeOut(300)
+			$('img[data-categories~="cat2"]').fadeIn(300)
+		})
+		$('.artwork').on('click', function(){ 
+			$('img[data-categories~="cat1"]').fadeOut(300)
+			$('img[data-categories~="cat2"]').fadeOut(300)
+			$('img[data-categories~="cat3"]').fadeIn(300)
+		})
+	</script>
 </body>
 </html>

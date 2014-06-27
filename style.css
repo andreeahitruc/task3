@@ -332,22 +332,16 @@ a{
 	cursor: pointer;
 	margin-left: 5px;
 }
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1024px){
 	 .site-width{
 		display: block;
 		width: 900px;	
 	}
 }
-@media screen and (max-width: 760px){
+@media screen and (max-width: 640px){
 	 .site-width{
 		display: block;
 		width: 650px;	
-	}
-}
-@media screen and (max-width: 600px){
-	.site-width {
-		display: block;
-		width: 500px;
 	}
 }
 @media screen and (max-width: 460px){
@@ -363,7 +357,7 @@ a{
 		width: 220px;
 	}
 }
-@media screen and (max-width: 760px){
+@media screen and (max-width: 640px){
 	.header-logo, .header-list, .footer-copyright, .footer-contact{
 		display: block;
 		width: 100%;
@@ -382,7 +376,7 @@ a{
 	}
 }
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 640px){
 	.header-list {
 		padding-top: 0px;	
 	}
@@ -408,30 +402,30 @@ a{
 		padding-left: 10px;
 	}
 }
-@media screen and (max-width: 760px){
+@media screen and (max-width: 640px){
 	.footer-copyright{
 		padding-top: 10px;
 	}
 }
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1024px){
 	 .multi-services{
 		display: block;
 		padding-left: 100px;	
 	}
 }
-@media screen and (max-width: 760px){
+@media screen and (max-width: 640px){
 	 .multi-services{
 		display: block;
 		padding-left: 175px;	
 	}
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 640px){
 	 .multi-services{
 		display: block;
 		padding-left: 100px;	
 	}
 }
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1024px){
 	 .services h2, .service-description {
 		display: block;
 		padding-left: 40px;	
