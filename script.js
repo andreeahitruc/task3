@@ -5,7 +5,10 @@ var randColor = function(slider) {
   g = parseInt(Math.random() * 255),
   b = parseInt(Math.random() * 255),
   color = 'rgb('+ r +','+ g +','+ b +')';
-  this.slider.css('background-color', color);
+  this.slider.css({
+    'background-color':color,
+    'border-color': color
+  });
 };
  
 //randColor($('div.slider'));
@@ -74,19 +77,21 @@ autofit = function(img, container) {
 
 }());
 
-function Slider(cont,imageWidth,speedFadeIn,speedFadeOut,speedSlider){
+function Slider(cont,speedFadeIn,speedFadeOut,speedSlider){
   this.cont = cont;
   this.rail = this.cont.find('.slider-container');
   this.clone = this.cont.find('.slider-page').first()
     .clone().appendTo(this.rail);
   
-  this.imageWidth = imageWidth;
+  this.imageWidth = $(window).width();
   this.page=$('.slider-page');
   this.imageLen = this.page.length;
   this.totalImgsWidth = this.imageWidth * this.imageLen+5;
   this.speedFadeIn = speedFadeIn;
   this.speedFadeOut = speedFadeOut;
   this.speedSlider = speedSlider;
+
+  $(window).on('resize', this.resize.bind(this));
  
  
   this.page.css('width', this.imageWidth);
@@ -106,6 +111,15 @@ function Slider(cont,imageWidth,speedFadeIn,speedFadeOut,speedSlider){
    console.log(this.totalImgsWidth);
 
 };
+
+Slider.prototype.resize = function() {
+  this.imageWidth = $(window).width()
+  this.totalImgsWidth = this.imageWidth * this.imageLen+5;    
+  this.rail.css({
+    width: this.totalImgsWidth,
+    marginLeft: -this.imageWidth * this.current
+  })
+}
 
 Slider.prototype.slide = function(direction) { 
   this.fadeOut();
@@ -165,7 +179,10 @@ Slider.prototype.slideTo = function() {
     }, this.speedSlider, function() {
       this.fadeIn();
     }.bind(this))
-  this.cont.css({'background-color': this.color});
+  this.cont.css({
+    'background-color': this.color,
+    'border-color': this.color
+  });
   console.log(this.color);
 };
 Slider.prototype.fadeIn = function() {

@@ -21,12 +21,12 @@
 	</div>
 	<div class="slider">
 		<div class="slider-container">
-			<div class="slider-page s1">1
+			<div class="slider-page s1">
 				<div class="iphone i1" >
 					<img src="Images/singol_vertical.png"/>
 				</div>
 			</div><!--
-		--><div class="slider-page s2">2
+		--><div class="slider-page s2">
 			    <div class="iphone i2">
 						<img src="Images/singolo_orizontal.png"/>
 				</div>	
@@ -103,13 +103,14 @@
 	<script src="script.js"></script>
 	<script type = "text/javascript">
 		
-		var slideOb = new Slider($('div.slider'), $(window).width(), 1000, 1000, 500);
+		var slideOb = new Slider($('div.slider'), 1000, 1000, 500);
 		$('.arrow').on('click', function(){ 
 			slideOb.slide($(this).data('dir'));
 		})
 
 		$('.slider-page').each(function() {
 	  		var $this = $(this);
+	  		console.log($this);
 	  		autofit($this.find('img'), $this.find('.iphone'));
 	 	})
 	</script>
