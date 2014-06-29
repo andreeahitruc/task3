@@ -330,6 +330,52 @@ a{
 	cursor: pointer;
 	margin-left: 5px;
 }
+
+.header-button{
+	height: 15px;
+	width: 40px;
+	background-color: #f06c64;
+	display: none;
+	font-family: "Lato";
+	font-size: 12px;
+	text-align: center;
+	cursor: pointer;
+	opacity: 0.5;
+}
+.header-button2{
+	height: 15px;
+	width: 15px;
+	background-color: #f06c64;
+	display: none;
+	font-family: "Lato";
+	font-size: 12px;
+	text-align: center;
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+@media screen and (max-width: 640px){
+	 .header-button{
+	 	display: block;
+	 	position: absolute;
+	 	top: 0px;
+	 	right: 0px;
+	}
+}
+@media screen and (max-width: 640px){
+	 .header-button2{
+	 	display: none;
+	 	position: absolute;
+	 	bottom: 0px;
+	 	right: 0px;
+	}
+}
+@media screen and (max-width: 640px){
+	 .header-list{
+	 	display: none;
+	}
+}
+
 @media screen and (max-width: 1024px){
 	 .site-width{
 		display: block;
@@ -370,9 +416,15 @@ a{
 	}
 }
 @media screen and (max-width: 640px){
-	.header-logo, .header-list, .footer-copyright, .footer-contact,.portofolio,.about-us,
+	.header-logo, .footer-copyright, .footer-contact,.portofolio,.about-us,
 	.contact{
 		display: block;
+		width: 100%;
+		text-align: center;
+	}
+}
+@media screen and (max-width: 640px){
+	.header-list{
 		width: 100%;
 		text-align: center;
 	}
@@ -406,11 +458,11 @@ a{
 		padding-top: 0px;	
 	}
 }
-@media screen and (max-width: 460px){
+/*@media screen and (max-width: 460px){
 	.header-list a {
 		display: block;
 	}
-}
+}*/
 @media screen and (max-width: 460px){
 	.header-list span{
 		display: none;
@@ -422,3 +474,4 @@ a{
 		display: inline-block;
 	}
 }
+

@@ -154,3 +154,14 @@ Slider.prototype.fadeIn = function() {
       opacity: 1
     }, this.speedFadeIn)
 };
+
+  $('.header-button').on('click', function(){
+        $('.header-list').css('display','block')
+        $('.header-button').css('display','none')
+        $('.header-button2').css('display','block')
+    })
+      $('.header-button2').on('click', function(){
+        $('.header-list').css('display','none')
+        $('.header-button2').css('display','none')
+        $('.header-button').css('display','block')
+    })
