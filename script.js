@@ -155,7 +155,7 @@ Slider.prototype.fadeIn = function() {
     }, this.speedFadeIn)
 };
 
-  $('.header-button').on('click', function(){
+ /* $('.header-button').on('click', function(){
         $('.header-list').css('display','block')
         $('.header-button').css('display','none')
         $('.header-button2').css('display','block')
@@ -164,4 +164,31 @@ Slider.prototype.fadeIn = function() {
         $('.header-list').css('display','none')
         $('.header-button2').css('display','none')
         $('.header-button').css('display','block')
-    })
+    })*/
+var flag = false;
+var afisare = function () {
+  $('.header-list').css({
+    'display':'block',
+    width: 100
+});
+  $('.header-list span').css('display','none');
+}
+var ascundere = function() {
+  $('.header-list').css('display','none');
+}
+var clicked =function() {
+  
+  if(flag === false)
+  {
+    afisare();
+    flag = true;
+  }
+  else {
+    ascundere();
+    flag = false;
+  }
+}
+$('.header-button').on('click', function() {
+
+  clicked();
+});
