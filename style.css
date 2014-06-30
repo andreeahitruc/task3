@@ -351,6 +351,12 @@ a{
 	}
 }
 @media screen and (max-width: 1024px){
+	 .header{
+	 	padding-left: 15px;
+	 	padding-right: 15px;
+	}
+}
+@media screen and (max-width: 1024px){
 	 .site-width{
 		display: block;
 		width: 100%;
@@ -360,7 +366,7 @@ a{
 	 .about-us{
 		text-align: center;
 	}
-@media screen and (max-width: 750px){
+@media screen and (max-width: 950px){
 	 .portofolio{
 		text-align: center;
 	}

@@ -179,6 +179,8 @@ var clicked =function() {
   }
 }
 $('.header-button').on('click', function() {
-
   clicked();
+   $('.header-list').animate({
+      'height':'toggle'
+  },100)
 });
